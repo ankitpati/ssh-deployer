@@ -27,10 +27,21 @@
         <script type="text/javascript">
             "use strict";
 
-            function onLoginTypeChange(isLogin) {
-                $("[name='action']").html(isLogin ? "Login" : "Sign Up");
-                $("[for='username']").attr("data-error", isLogin ? "Incorrect" : "Exists");
-                username.setAttribute("pattern", isLogin ? "Ankit Pati|Tiashaa Chatterjee" : ".*");
+            function validate() {
+                if (username.value === "") return;
+                $.ajax({
+                    url: "php/username.php",
+                    data: {"username": username.value},
+                    success: function (user_exists) {
+                        $("#username").removeClass(login.checked == user_exists ? "invalid" : "valid");
+                        $("#username").addClass(login.checked == user_exists ? "valid" : "invalid");
+                    }
+                });
+            }
+
+            function onLoginTypeChange() {
+                $("[name='action']").html(login.checked ? "Login" : "Sign Up");
+                $("[for='username']").attr("data-error", login.checked ? "Incorrect" : "Exists");
                 username.focus();
                 username.blur();
             }
@@ -40,12 +51,14 @@
                     onLoginTypeChange(true);
                     password.focus();
                     password.blur();
+                    login.click();
                 }, 200);
             }
 
             $(function () {
-                login.setAttribute("onclick", "onLoginTypeChange(true)");
-                signup.setAttribute("onclick", "onLoginTypeChange(false)");
+                login.setAttribute("onclick", "onLoginTypeChange()");
+                signup.setAttribute("onclick", "onLoginTypeChange()");
+                username.setAttribute("onblur", "validate()");
                 $("[type='reset']").attr("onclick", "onCancel()");
                 login.click();
             });
