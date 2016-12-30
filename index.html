@@ -45,8 +45,8 @@
 
             function onLoginTypeChange() {
                 $("[name='action']").html(login.checked ? "Login" : "Sign Up");
-                $("[for='username']").attr("data-error", login.checked ? "Incorrect" : "Exists");
-                $("[for='username']").attr("data-success", login.checked ? "Enter Password" : "Available");
+                $("[for='username']").attr("data-error", login.checked ? "Username Incorrect" : "Username Exists");
+                $("[for='username']").attr("data-success", login.checked ? "Enter Password" : "Username Available");
                 username.focus(); /* manual focus and blur needed to force repaint */
                 username.blur();
             }
