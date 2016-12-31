@@ -83,8 +83,8 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" />
-                        <label for="password">Password</label>
+                        <input id="password" type="password" class="validate" pattern="(?=.*[A-Za-z].*)(?=.*\d.*).{8,}" />
+                        <label for="password" data-error="At least 8 letters and numbers required">Password</label>
                     </div>
                 </div>
 
