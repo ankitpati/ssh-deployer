@@ -35,12 +35,19 @@
                     success: function (user_exists) {
                         $("#username").removeClass(login.checked == user_exists ? "invalid" : "valid");
                         $("#username").addClass(login.checked == user_exists ? "valid" : "invalid");
-                        if (login.checked == user_exists)
+                        if (login.checked == user_exists && $("#password").hasClass("valid"))
                             $("[name='action']").removeClass("disabled");
                         else
                             $("[name='action']").addClass("disabled");
                     }
                 });
+            }
+
+            function onPasswordBlur() {
+                if ($("#username").hasClass("valid") && $("#password").hasClass("valid"))
+                    $("[name='action']").removeClass("disabled");
+                else
+                    $("[name='action']").addClass("disabled");
             }
 
             function onLoginTypeChange() {
@@ -65,6 +72,7 @@
                 login.setAttribute("onclick", "onLoginTypeChange()");
                 signup.setAttribute("onclick", "onLoginTypeChange()");
                 username.setAttribute("onblur", "validate()");
+                password.setAttribute("onblur", "onPasswordBlur()");
                 $("[type='reset']").attr("onclick", "onCancel()");
                 $("[name='action']").addClass("disabled");
                 login.click();
