@@ -3,7 +3,7 @@
 function validate() {
     if (username.value === "") return;
     $.ajax({
-        url: "php/username.php",
+        url: "php/login.php",
         data: {"username": username.value},
         success: function (user_exists) {
             $("#username").removeClass(login.checked == user_exists ? "invalid" : "valid");
