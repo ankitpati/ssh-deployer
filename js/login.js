@@ -27,16 +27,14 @@ function onLoginTypeChange() {
     $("[name='action']").html(login.checked ? "Login" : "Sign Up");
     $("[for='username']").attr("data-error", login.checked ? "Username Incorrect" : "Username Exists");
     $("[for='username']").attr("data-success", login.checked ? "Enter Password" : "Username Available");
-    username.focus(); /* manual focus and blur needed to force repaint */
-    username.blur();
+    validate();
+    Materialize.updateTextFields();
 }
 
 function onCancel() {
     setTimeout(function () {
         onLoginTypeChange();
         $("[name='action']").addClass("disabled");
-        password.focus();
-        password.blur();
         login.click();
     }, 200);
 }
