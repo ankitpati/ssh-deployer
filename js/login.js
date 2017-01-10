@@ -1,7 +1,11 @@
 "use strict";
 
 function validate() {
-    if (username.value === "") return;
+    if (username.value === "") {
+        $("[name='action']").addClass("disabled");
+        return;
+    }
+
     $.ajax({
         url: "php/login.php",
         data: {"username": username.value},
