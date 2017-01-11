@@ -1,5 +1,7 @@
 <?php
 
+    if ($_SERVER["REMOTE_ADDR"] !== "127.0.0.1" && $_SERVER["REMOTE_ADDR"] !== "::1") die();
+
     if (!isset($_COOKIE["username"]) || !isset($_COOKIE["password"]) || !isset($_FILES["upload"])) die();
 
     $con = new PDO("mysql:host=localhost;dbname=sshdeployer", "sshdeployer", "sshdeployer");
