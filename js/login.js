@@ -47,6 +47,15 @@ function onCancel() {
     }, 200);
 }
 
+function getGetParameter(parameterName) {
+    var result = null, tmp = [];
+    location.search.substr(1).split("&").forEach(function (item) {
+        tmp = item.split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    });
+    return result;
+}
+
 $(function () {
     login.setAttribute("onclick", "onLoginTypeChange()");
     signup.setAttribute("onclick", "onLoginTypeChange()");
@@ -56,4 +65,18 @@ $(function () {
     $("[type='reset']").attr("onclick", "onCancel()");
     $("#action").addClass("disabled");
     login.click();
+
+    switch (getGetParameter("status")) {
+    case "incorrect":
+        Materialize.toast("Incorrect Credentials", 4000);
+        break;
+    case "created":
+        Materialize.toast("User Successfully Created", 4000);
+        break;
+    case "exists":
+        Materialize.toast("User Already Exists", 4000);
+        break;
+    default:
+        break;
+    }
 });
