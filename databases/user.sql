@@ -1,5 +1,5 @@
-drop user if exists tasktracker@localhost;
-create user tasktracker@localhost identified by "tasktracker";
+drop user if exists sshdeployer@localhost;
+create user sshdeployer@localhost identified by "sshdeployer";
 
-grant usage on *.* to tasktracker@localhost;
-grant all privileges on tasktracker.* to tasktracker@localhost;
+grant usage on *.* to sshdeployer@localhost;
+grant all privileges on sshdeployer.* to sshdeployer@localhost;

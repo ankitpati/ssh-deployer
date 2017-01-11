@@ -2,7 +2,7 @@
 
     if (!isset($_REQUEST["username"])) die();
 
-    $con = new PDO("mysql:host=localhost;dbname=tasktracker", "tasktracker", "tasktracker");
+    $con = new PDO("mysql:host=localhost;dbname=sshdeployer", "sshdeployer", "sshdeployer");
 
     if (!isset($_REQUEST["password"])) {
         $ps = $con->prepare("select 1 from users where username = ?");
