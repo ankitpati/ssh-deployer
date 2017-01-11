@@ -35,6 +35,10 @@ function onLoginTypeChange() {
     Materialize.updateTextFields();
 }
 
+function hashPassword() {
+    password.value = new Hashes.SHA512().hex(password.value);
+}
+
 function onCancel() {
     setTimeout(function () {
         onLoginTypeChange();
@@ -48,6 +52,7 @@ $(function () {
     signup.setAttribute("onclick", "onLoginTypeChange()");
     username.setAttribute("onblur", "validate()");
     password.setAttribute("onblur", "onPasswordBlur()");
+    $("form").submit(hashPassword);
     $("[type='reset']").attr("onclick", "onCancel()");
     $("#action").addClass("disabled");
     login.click();
