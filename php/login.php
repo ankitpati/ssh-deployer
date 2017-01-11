@@ -19,7 +19,7 @@
             if (password_verify($_REQUEST["password"], $ps->fetchColumn())) {
                 setcookie("username", $_REQUEST["username"], time() + 60*60*24*30, "/");
                 setcookie("password", $_REQUEST["password"], time() + 60*60*24*30, "/");
-                header("Location: ../index.html?status=correct");
+                header("Location: ../workspace.html");
             }
             else {
                 setcookie("username", "", 1, "/");

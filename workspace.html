@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SSH Deployer</title>
+        <link rel="stylesheet" type="text/css" href="css/materialize.min.css" media="screen,projection" />
+        <link rel="stylesheet" type="text/css" href="css/material-icons.css" media="screen,projection" />
+        <link rel="stylesheet" type="text/css" href="css/workspace/screen.css" media="screen,projection" />
+        <link rel="stylesheet" type="text/css" href="css/workspace/print.css" media="print" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+
+    <body>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper teal">
+                    <a class="brand-logo center">SSH Deployer</a>
+                </div>
+            </nav>
+        </div>
+
+        <div id="superset" class="row">
+            <form action="php/workspace.php" method="POST" enctype="multipart/form-data" class="card-panel hoverable col m6 s10 offset-m3 offset-s1">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" />
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload a ZIP Archive" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light btn-large" type="submit" id="action">Upload</button>
+                        <button class="btn waves-effect waves-light btn-large" type="reset">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
