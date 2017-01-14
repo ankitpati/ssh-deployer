@@ -11,7 +11,7 @@ All code used in the prototype will be placed under the open source licence GNU 
 * Responsive design
 * Material design
 * Validates as much input as possible on client-side
-* Interface hosted at [ankitpati.in/ssh-deployer](https://ankitpati.in/ssh-deployer "SSH Deployer")
+* Interface hosted at [ankitpati.in/ssh-deployer](https://ankitpati.in/ssh-deployer "SSH Deployer"), [ankitpati.in/ssh-deployer/workspace.html](https://ankitpati.in/ssh-deployer/workspace.html "Workspace")
 
 **Web Server**
 * LAMP stack (Ubuntu 16.06, Apache, MySQL, PHP)
